@@ -52,5 +52,17 @@ public class PrintPrimesTest {
         System.setIn(System.in);
 	}
 	
+	@Test
+	public void Ppaths() {
+		String[] args = {String.valueOf(3)};
+        String string = "word\nword\nword\n";
+		InputStream stringStream = new ByteArrayInputStream(string.getBytes());
+        System.setIn(stringStream);
+        
+        PrintPrimes.main(args);
+        assertEquals("Prime: 2\nPrime: 3\nPrime: 5\n", outContent.toString());
+        System.setIn(System.in);
+	}
+
 
 }
