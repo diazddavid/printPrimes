@@ -39,5 +39,18 @@ public class PrintPrimesTest {
         assertEquals("Usage: java PrintPrimes v1 \n", outContent.toString());
         System.setIn(System.in);
 	}
+	
+	@Test
+	public void noInt(){
+		String[] args = {"pepe"};
+        String string = "word\nword\nword\n";
+		InputStream stringStream = new ByteArrayInputStream(string.getBytes());
+        System.setIn(stringStream);
+        
+        PrintPrimes.main(args);
+        assertEquals("Entry must be a integer, using 1.\nPrime: 2\n", outContent.toString());
+        System.setIn(System.in);
+	}
+	
 
 }
