@@ -25,7 +25,14 @@ public class PrintPrimesTest {
 
 	@Test
 	public void noPrimes() {
+        String string = "word\nword\nword\n";
+		InputStream stringStream = new ByteArrayInputStream(string.getBytes());
+        System.setIn(stringStream);
+
 		PrintPrimes.main(new String[] {String.valueOf(0)});
+        assertEquals("Prime: 2\n", outContent.toString());
+        System.setIn(System.in);
+		
 	}
 	
 	@Test
