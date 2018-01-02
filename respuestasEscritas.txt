@@ -1,0 +1,53 @@
+4-
+  -node coverage: [1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20]
+          T:[1 2] [1 3 4]
+          [1 3 5 6 7 8 9 10 19 20 11 7 8 9 10 19 20 12 13 15 9 10 19 20 12 14 15 16 7 8 9 10 19 20 12 13 15 17 18 17 18 5]
+  -edge coverage: [1 2] [1 3] [3 4] [3 5] [5 6] [6 7] [7 8] [8 9] [9 10] [10 20] [11 7] [12 13] [12 14] [13 15]
+                  [14 15] [15 16] [15 9] [16 7] [15 17] [17 18] [18 17] [18 5] [19 20] [20 11] [20 12]
+                  T:[1 2] [1 3 4]
+                  [1 3 5 6 7 8 9 10 19 20 11 7 8 9 10 19 20 12 13 15 9 10 19 20 12 14 15 16 7 8 9 10 19 20 12 13 15 17 18 17 18 5]
+  -Prime paths: [1 2] [1 3 4] [1 3 5 6 7 8 9 10 19 20 11 7] [1 3 5 6 7 8 9 10 19 20 12 13 15 9] [1 3 5 6 7 8 9 10 19 20 12 14 15 16 9]
+                [1 3 5 6 7 8 9 10 19 20 12 13 15 17 18] [1 3 5 6 7 8 9 10 19 20 12 13 15 17 18 5] [18 17 18] [17 18 17]
+
+5- En este caso para el grafo dibujado no hay ningún camino que cumpla cobertura de nodos y no de arcos pues para pasar por todos los nodos tiene que pasar por todos los arcos
+
+6- [1 3 5 6 7 8 9 10 19 20 11 7 8 9 10 19 20 12 13 15 9 10 19 20 12 14 15 16 7 8 9 10 19 20 12 13 15 17 18 17 18 5]
+  Este camino cumple arcos pero no principales pues hay varios subcaminos ahí al encontrarnos con búcles.
+
+
+
+PARTE 2
+
+// Test para llegar al 3er return Y cumplir [1 3 5 6 7 8 9]
+List<String> list1 = new ArrayList<String>();
+List<String> list2 = new ArrayList<String>();
+list1.add ("foo");
+list2.add ("bar");
+assumeFalse(list1.equals(list2));
+
+// Test para salir en el 1er return y cumplir [1 2] Camino primario y de arcos
+List<String> list1 = new ArrayList<String>();
+list1.add ("foo");
+assumeTrue(list1.equals(list1));
+
+// Test para salir en el 2o return y cumplir [1 3 4] Camino primario y de arcos
+List<String> list1 = new ArrayList<String>();
+String a = "PEPE"
+list1.add ("foo");
+assumeFalse(list1.equals(a));
+
+//Test para llegar al final y cumplir [1 3 5 6 7 8 10 11 y 12 o 13] 12 o 13 según consideremos true or false 12 o 13 de arcos y primario
+
+List<String> list1 = new ArrayList<String>();
+List<String> list2 = new ArrayList<String>();
+list1.add ("foo");
+list2.add ("foo");
+assumeTrue(list1.equals(list1));
+
+//Test para llegar al final y cumplir [1 3 5 6 7 8 10 6 7 8 10 11 (12 o 13)] En este caso al contrario que antes primarios y de arcos
+
+List<String> list1 = new ArrayList<String>();
+List<String> list2 = new ArrayList<String>();
+list1.add ("foo", "pepe");
+list2.add ("foo", "pepe" , "perez");
+assumeTrue(list1.equals(list1));
